@@ -1,4 +1,4 @@
-# godot-tutorials
+# Godot Tutorials
 
 ## License
 MIT
