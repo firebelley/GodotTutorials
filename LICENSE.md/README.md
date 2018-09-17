@@ -1,4 +1,0 @@
-# Godot Tutorials
-
-## License
-MIT
