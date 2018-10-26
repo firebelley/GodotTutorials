@@ -1,0 +1,24 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=3
+
+[application]
+
+config/name="002_save_load"
+run/main_scene="res://Main.tscn"
+config/custom_user_dir_name="002_save_load"
+config/icon="res://icon.png"
+
+[autoload]
+
+DataManager="*res://scripts/DataManager.cs"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
