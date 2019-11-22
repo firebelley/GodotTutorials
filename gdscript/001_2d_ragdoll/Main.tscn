@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://StaticBody.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ragdoll.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody" parent="." instance=ExtResource( 1 )]
+position = Vector2( 140, 270 )
+
+[node name="StaticBody2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 170, 270 )
+
+[node name="StaticBody3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 270 )
+
+[node name="StaticBody4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 250, 210 )
+
+[node name="StaticBody5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 280, 210 )
+
+[node name="StaticBody7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 340, 210 )
+
+[node name="StaticBody8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 370, 210 )
+
+[node name="Ragdoll" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150, 160 )
+
+[node name="Ragdoll2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 200, 150 )
+
+[node name="Ragdoll3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 260, 140 )
+
+[node name="Ragdoll4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 340, 110 )
+
+[node name="Ragdoll5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150, 90 )
+
+[node name="Ragdoll6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150, 90 )

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://body.png" type="Texture" id=1]
+[ext_resource path="res://head.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+func _ready():
+	$Head.linear_velocity = Vector2.RIGHT * 50;
+	$Head.angular_velocity = 10;
+"
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 9.0
+
+[node name="Ragdoll" type="Node2D"]
+script = SubResource( 3 )
+
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2( 0, -30 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Head"]
+texture = ExtResource( 2 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2( 0, -22 )
+node_a = NodePath("../Head")
+node_b = NodePath("../Body")
+disable_collision = false
+
+[node name="Body" type="RigidBody2D" parent="."]
+position = Vector2( 0, -10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Body"]
+texture = ExtResource( 1 )
