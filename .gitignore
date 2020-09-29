@@ -53,4 +53,10 @@ godot/logs
 .vs
 *.sfk
 
-packages/
+mono/
+.import/
+.vscode/
+packages/**
+!packages/.gdignore
+!packages/offline
+!packages/offline/**
