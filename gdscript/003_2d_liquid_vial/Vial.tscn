@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/vial.png" type="Texture" id=1]
+[ext_resource path="res://assets/vial-liquid1.png" type="Texture" id=2]
+[ext_resource path="res://assets/vial-liquid-crest2.png" type="Texture" id=3]
+[ext_resource path="res://assets/vial-liquid2.png" type="Texture" id=4]
+[ext_resource path="res://assets/vial-liquid3.png" type="Texture" id=5]
+[ext_resource path="res://assets/vial-mask.png" type="Texture" id=6]
+[ext_resource path="res://Vial.gd" type="Script" id=7]
+[ext_resource path="res://assets/vial-liquid-crest1.png" type="Texture" id=8]
+[ext_resource path="res://assets/vial-liquid-crest3.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 0.6
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "default"
+length = 0.6
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ) ]
+}
+
+[node name="Vial" type="RigidBody2D"]
+gravity_scale = 0.0
+angular_velocity = 3.0
+angular_damp = 0.0
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -4 )
+
+[node name="LiquidSprite" type="Sprite" parent="."]
+show_behind_parent = true
+light_mask = 524288
+position = Vector2( 0, 24 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LiquidSprite"]
+autoplay = "default"
+playback_speed = 1.5
+anims/default = SubResource( 1 )
+
+[node name="LiquidCrest" type="Sprite" parent="LiquidSprite"]
+light_mask = 524288
+position = Vector2( 0, -32 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LiquidSprite/LiquidCrest"]
+autoplay = "default"
+playback_speed = -1.5
+anims/default = SubResource( 2 )
+
+[node name="MaxFillPosition" type="Position2D" parent="."]
+position = Vector2( 0, 24 )
+
+[node name="MinFillPosition" type="Position2D" parent="."]
+position = Vector2( 0, 39 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 6 )
+offset = Vector2( 0, -4 )
+mode = 3
+range_item_cull_mask = 524288
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_left = -9.0
+margin_top = -15.0
+margin_right = 9.0
+margin_bottom = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

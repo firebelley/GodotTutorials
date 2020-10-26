@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Vial.tscn" type="PackedScene" id=1]
+
+[node name="Main" type="Node2D"]
+
+[node name="Vial" parent="." instance=ExtResource( 1 )]
+position = Vector2( 76.42, 73.1656 )
+fillPercent = 0.1
