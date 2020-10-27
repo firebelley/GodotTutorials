@@ -51,11 +51,11 @@ gravity_scale = 0.0
 angular_velocity = 3.0
 angular_damp = 0.0
 script = ExtResource( 7 )
-fillPercent = 0.25
+fillPercent = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -2 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -4 )
 
 [node name="LiquidSprite" type="Sprite" parent="."]
 show_behind_parent = true
@@ -87,22 +87,22 @@ playback_speed = -1.5
 anims/default = SubResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, -2 )
 texture = ExtResource( 6 )
+offset = Vector2( 0, -4 )
 mode = 3
 range_item_cull_mask = 524288
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 margin_left = -9.0
-margin_top = -13.0
+margin_top = -11.0
 margin_right = 9.0
-margin_bottom = 12.0
+margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MaxFillPosition" type="Position2D" parent="."]
-position = Vector2( 0, -6 )
+position = Vector2( 0, -7 )
 
 [node name="MinFillPosition" type="Position2D" parent="."]
 position = Vector2( 0, 8 )
