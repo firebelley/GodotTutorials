@@ -6,4 +6,4 @@
 
 [node name="Vial" parent="." instance=ExtResource( 1 )]
 position = Vector2( 76.42, 73.1656 )
-fillPercent = 0.1
+fillPercent = 0.5

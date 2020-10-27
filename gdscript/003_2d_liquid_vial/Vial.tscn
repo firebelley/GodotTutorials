@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/vial.png" type="Texture" id=1]
 [ext_resource path="res://assets/vial-liquid1.png" type="Texture" id=2]
@@ -9,10 +9,11 @@
 [ext_resource path="res://Vial.gd" type="Script" id=7]
 [ext_resource path="res://assets/vial-liquid-crest1.png" type="Texture" id=8]
 [ext_resource path="res://assets/vial-liquid-crest3.png" type="Texture" id=9]
+[ext_resource path="res://assets/vial-liquid4.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
-length = 0.6
+length = 0.8
 loop = true
 step = 0.2
 tracks/0/type = "value"
@@ -22,17 +23,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
+"values": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "default"
 length = 0.6
 loop = true
-step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -59,7 +59,7 @@ offset = Vector2( 0, -4 )
 [node name="LiquidSprite" type="Sprite" parent="."]
 show_behind_parent = true
 light_mask = 524288
-position = Vector2( 0, 24 )
+position = Vector2( 0, 26 )
 texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
@@ -69,24 +69,17 @@ autoplay = "default"
 playback_speed = 1.5
 anims/default = SubResource( 1 )
 
-[node name="LiquidCrest" type="Sprite" parent="LiquidSprite"]
+[node name="Crest" type="Sprite" parent="LiquidSprite"]
 light_mask = 524288
-position = Vector2( 0, -32 )
-texture = ExtResource( 8 )
-offset = Vector2( 0, -8 )
+position = Vector2( 0, -40 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 16 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LiquidSprite/LiquidCrest"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LiquidSprite/Crest"]
 autoplay = "default"
 playback_speed = -1.5
 anims/default = SubResource( 2 )
-
-[node name="MaxFillPosition" type="Position2D" parent="."]
-position = Vector2( 0, 24 )
-
-[node name="MinFillPosition" type="Position2D" parent="."]
-position = Vector2( 0, 39 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 6 )
@@ -102,3 +95,9 @@ margin_bottom = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MaxFillPosition" type="Position2D" parent="."]
+position = Vector2( 0, 26 )
+
+[node name="MinFillPosition" type="Position2D" parent="."]
+position = Vector2( 0, 40 )

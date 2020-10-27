@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	$LiquidSprite.global_rotation = 0
-	
+
 	var maxFillPosition = global_position + $MaxFillPosition.position;
 	var newGlobalPos = maxFillPosition + Vector2(0, fillHeightDifference * (1 - fillPercent))
 	$LiquidSprite.global_position = newGlobalPos
@@ -21,5 +21,5 @@ func _process(delta: float) -> void:
 func get_real_height():
 	var newXVect = (Vector2.RIGHT * vialWidth).rotated(global_rotation)
 	var newYVect = (Vector2.UP * vialHeight).rotated(global_rotation)
-	
+
 	return abs(newXVect.y) + abs(newYVect.y)
