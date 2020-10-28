@@ -2,14 +2,14 @@
 
 [ext_resource path="res://assets/vial.png" type="Texture" id=1]
 [ext_resource path="res://assets/vial-liquid1.png" type="Texture" id=2]
-[ext_resource path="res://assets/vial-liquid-crest2.png" type="Texture" id=3]
-[ext_resource path="res://assets/vial-liquid2.png" type="Texture" id=4]
+[ext_resource path="res://assets/vial-mask.png" type="Texture" id=3]
+[ext_resource path="res://assets/vial-liquid4.png" type="Texture" id=4]
 [ext_resource path="res://assets/vial-liquid3.png" type="Texture" id=5]
-[ext_resource path="res://assets/vial-mask.png" type="Texture" id=6]
+[ext_resource path="res://assets/vial-liquid2.png" type="Texture" id=6]
 [ext_resource path="res://Vial.gd" type="Script" id=7]
 [ext_resource path="res://assets/vial-liquid-crest1.png" type="Texture" id=8]
 [ext_resource path="res://assets/vial-liquid-crest3.png" type="Texture" id=9]
-[ext_resource path="res://assets/vial-liquid4.png" type="Texture" id=10]
+[ext_resource path="res://assets/vial-liquid-crest2.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -26,13 +26,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ) ]
+"values": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "default"
 length = 0.6
 loop = true
+step = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -43,15 +44,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ]
 }
 
 [node name="Vial" type="RigidBody2D"]
 gravity_scale = 0.0
-angular_velocity = 3.0
+angular_velocity = 2.0
 angular_damp = 0.0
 script = ExtResource( 7 )
-fillPercent = 1.0
+fillPercent = 0.5
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -60,8 +61,7 @@ offset = Vector2( 0, -4 )
 [node name="LiquidSprite" type="Sprite" parent="."]
 show_behind_parent = true
 light_mask = 524288
-position = Vector2( 0, -10 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 centered = false
 offset = Vector2( -32, 0 )
 region_enabled = true
@@ -74,10 +74,9 @@ anims/default = SubResource( 1 )
 
 [node name="Crest" type="Sprite" parent="LiquidSprite"]
 light_mask = 524288
-position = Vector2( 0, -16 )
 texture = ExtResource( 8 )
 centered = false
-offset = Vector2( -32, 0 )
+offset = Vector2( -32, -16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 16 )
 
@@ -87,22 +86,22 @@ playback_speed = -1.5
 anims/default = SubResource( 2 )
 
 [node name="Light2D" type="Light2D" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 offset = Vector2( 0, -4 )
 mode = 3
 range_item_cull_mask = 524288
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 margin_left = -9.0
-margin_top = -11.0
+margin_top = -15.0
 margin_right = 9.0
-margin_bottom = 14.0
+margin_bottom = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MaxFillPosition" type="Position2D" parent="."]
-position = Vector2( 0, -7 )
+position = Vector2( 0, -8 )
 
 [node name="MinFillPosition" type="Position2D" parent="."]
-position = Vector2( 0, 8 )
+position = Vector2( 0, 7 )
