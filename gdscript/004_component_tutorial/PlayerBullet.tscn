@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://BulletComponent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Tiles/tile_0000.png" type="Texture" id=2]
+[ext_resource path="res://HitboxComponent.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 10 )
+
+[node name="PlayerBullet" instance=ExtResource( 1 )]
+speed = 100.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="HitboxComponent" parent="." index="1" instance=ExtResource( 3 )]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource( 1 )
